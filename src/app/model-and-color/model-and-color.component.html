@@ -1,0 +1,15 @@
+<div>
+    <h1>Step 1: Choose you Model and Color</h1>
+    <span>Model :</span>
+    <select id="modelSelect" [(ngModel)]="selectedData.model" (change)="selectedModel($event)">
+        <option disabled>{{selectedData.model}}</option>
+        <option id={{m.code}} value={{m.description}} *ngFor="let m of dataService.dataFromApi">{{m.description}}</option>
+    </select>
+    <ng-container *ngIf="selectedData.model != 'Choose'">
+    <span style="margin-left: 20px;">Color :</span>
+    <select [(ngModel)]="selectedData['color']" (change)="selectedColor($event)" >
+        <option image *ngFor="let color of dataService.dropDownColors">{{color['description']}}</option>
+    </select>
+   </ng-container> 
+</div>
+

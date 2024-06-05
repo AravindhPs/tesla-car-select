@@ -1,0 +1,15 @@
+<div>
+    <h1>Step 2: Select your config and options</h1>
+    <span>Config :</span>
+    <select id="configSelect" [(ngModel)]="selectedData.config" (change)="selectedConfig($event)">
+        <option disabled>{{selectedData.config}}</option>
+        <option id={{config.id}} value={{config.description}} *ngFor="let config of dataService.dropDownConfigs">{{config.description}}</option> 
+    </select>
+</div>
+<div *ngIf="selectedData.config !== 'Choose'">
+    <span>Range : {{selectedData.range}} miles - </span>
+    <span> Max speed : {{selectedData.maxSpeed}} -</span>
+    <span> Cost : ${{selectedData.cost}} </span>
+</div>
+<div *ngIf="selectedData.tow.isTowAvailable">Tow hitch? <input id="towHitch" [(ngModel)]="selectedData.tow.isTowSelect" (change)="checked($event)" type="checkbox"></div>
+<div *ngIf="selectedData.yoke.isYokeAvailable">Yoke steering wheel? <input id="yokeSteeringWheel" [(ngModel)]="selectedData.yoke.isYokeSelect" (change)="checked($event)" type="checkbox"></div>

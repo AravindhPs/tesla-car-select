@@ -1,0 +1,11 @@
+<div class="Row">
+  <button id="step1" (click)="routeToPage('step1')" class="Column">STEP 1</button>
+  <button id="step2" (click)="routeToPage('step2')" [class.disabled]="disablePage('2')" class="Column">STEP 2</button>
+  <button id="step3" (click)="routeToPage('step3')" [class.disabled]="disablePage('3')" class="Column">STEP 3</button>
+</div>
+ <router-outlet></router-outlet>
+<div>
+  @if (dataService.finalURL | async; as image) {
+      <img [src]="image" alt="Tesla car model images">
+    }
+</div>

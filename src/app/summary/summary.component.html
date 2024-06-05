@@ -1,0 +1,31 @@
+<h1>Step 3: Summary</h1>
+<h2>Your Tesla {{selectedData.model}}</h2>
+<table>
+    <tr>
+        <th>{{selectedData.config}} <br>
+            <h6>Range : {{selectedData.range}} miles - Max speed : {{selectedData.maxSpeed}}</h6>
+        </th>
+        <th>${{selectedData.cost}}</th>
+    </tr>
+    <tr>
+        <th>{{selectedData.color}} Color</th>
+        <th>${{selectedData.colorprice}}</th>
+    </tr>
+    @if (selectedData.tow.isTowAvailable) {
+    <tr>
+        <th>Tow Hitch Package</th>
+        <th>${{selectedData.tow.towHitchCost}}</th>
+    </tr>
+    }
+    @if (selectedData.yoke.isYokeAvailable) {
+        <tr>
+            <th>Yoke Package</th>
+            <th>${{selectedData.yoke.toYokeCost}}</th>
+        </tr>
+        }
+    <tr>
+        <th>Total Cost</th>
+        <th>${{selectedData.cost + selectedData.colorprice + selectedData.tow.towHitchCost + selectedData.yoke.toYokeCost}}
+        </th>
+    </tr>
+</table>
